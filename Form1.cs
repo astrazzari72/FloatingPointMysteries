@@ -10,17 +10,6 @@ namespace FloatingPointMysteries
 			InitializeComponent();
 		}
 
-		static void PrintBinaryRepresentation(double number)
-		{
-			byte[] bytes = BitConverter.GetBytes(number);
-			Array.Reverse(bytes); // Per big-endian
-
-			foreach (byte b in bytes)
-			{
-				Console.Write(Convert.ToString(b, 2).PadLeft(8, '0'));
-			}
-			Console.WriteLine();
-		}
 		static string GetBinaryRepresentation(double number)
 		{
 			byte[] bytes = BitConverter.GetBytes(number);
@@ -38,13 +27,14 @@ namespace FloatingPointMysteries
 
 		private void ConversionErrors_button1_Click(object sender, EventArgs e)
 		{
-			float value = float.Parse(ConversionErrors_Value_textBox.Text);  //0.6
-
 			CE_Res_tb.Text = string.Empty; // Pulisce il TextBox prima di mostrare i risultati
+			float valueF = float.Parse(ConversionErrors_Value_textBox.Text);  //0.6
 			CE_Res_tb.AppendText("--------------FLOAT -------------" + Environment.NewLine);
-			floatTest(value);
+			floatTest(valueF);
+
+			double valueD = double.Parse(ConversionErrors_Value_textBox.Text);  //0.6
 			CE_Res_tb.AppendText("--------------DOUBLE-------------" + Environment.NewLine);
-			doubleTest(value);
+			doubleTest(valueD);
 		}
 		private void floatTest(float value)
 		{
@@ -52,18 +42,18 @@ namespace FloatingPointMysteries
 
 			string strRes;
 			// Usa la cultura "invariant" per usare il punto come separatore
-			strRes = $"Valore originale: {value.ToString("G10", CultureInfo.InvariantCulture)}";
+			strRes = $"Valore originale {value}: {value.ToString("G20", CultureInfo.InvariantCulture)}";
 			Console.WriteLine(strRes);
 			CE_Res_tb.AppendText(strRes + Environment.NewLine);
-			strRes = $"Risultato di value * 2: {result.ToString("G10", CultureInfo.InvariantCulture)}";
+			strRes = $"Valore originale {result}: {result.ToString("G20", CultureInfo.InvariantCulture)}";
 			Console.WriteLine(strRes);
 			CE_Res_tb.AppendText(strRes + Environment.NewLine);
 
 			// Mostra la rappresentazione binaria
-			strRes = $"Rappresentazione binaria di value: {GetBinaryRepresentation(value)}";
+			strRes = $"Rapp. binaria di {value}: {GetBinaryRepresentation(value)}";
 			Console.WriteLine(strRes);
 			CE_Res_tb.AppendText(strRes + Environment.NewLine);
-			strRes = $"Rappresentazione binaria di value * 2: {GetBinaryRepresentation(result)}";
+			strRes = $"Rapp. binaria di {result}: {GetBinaryRepresentation(result)}";
 			Console.WriteLine(strRes);
 			CE_Res_tb.AppendText(strRes + Environment.NewLine);
 		}
@@ -73,18 +63,18 @@ namespace FloatingPointMysteries
 
 			string strRes;
 			// Usa la cultura "invariant" per usare il punto come separatore
-			strRes = $"Valore originale: {value.ToString("G20", CultureInfo.InvariantCulture)}";
+			strRes = $"Valore originale {value}: {value.ToString("G20", CultureInfo.InvariantCulture)}";
 			Console.WriteLine(strRes);
 			CE_Res_tb.AppendText(strRes + Environment.NewLine);
-			strRes = $"Risultato di value * 2: {result.ToString("G20", CultureInfo.InvariantCulture)}";
+			strRes = $"Valore originale {result}: {result.ToString("G20", CultureInfo.InvariantCulture)}";
 			Console.WriteLine(strRes);
 			CE_Res_tb.AppendText(strRes + Environment.NewLine);
 
 			// Mostra la rappresentazione binaria
-			strRes = $"Rappresentazione binaria di value: {GetBinaryRepresentation(value)}";
+			strRes = $"Rapp. binaria di {value}: {GetBinaryRepresentation(value)}";
 			Console.WriteLine(strRes);
 			CE_Res_tb.AppendText(strRes + Environment.NewLine);
-			strRes = $"Rappresentazione binaria di value * 2: {GetBinaryRepresentation(result)}";
+			strRes = $"Rapp. binaria di {result}: {GetBinaryRepresentation(result)}";
 			Console.WriteLine(strRes);
 			CE_Res_tb.AppendText(strRes + Environment.NewLine);
 		}

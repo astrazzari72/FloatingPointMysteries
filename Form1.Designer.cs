@@ -53,10 +53,11 @@
 			// 
 			// CE_Res_tb
 			// 
-			CE_Res_tb.Location = new Point(275, 12);
+			CE_Res_tb.Font = new Font("Courier New", 10F);
+			CE_Res_tb.Location = new Point(227, 12);
 			CE_Res_tb.Multiline = true;
 			CE_Res_tb.Name = "CE_Res_tb";
-			CE_Res_tb.Size = new Size(513, 308);
+			CE_Res_tb.Size = new Size(759, 308);
 			CE_Res_tb.TabIndex = 2;
 			CE_Res_tb.Text = "RES";
 			// 
@@ -64,7 +65,7 @@
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(800, 450);
+			ClientSize = new Size(998, 450);
 			Controls.Add(CE_Res_tb);
 			Controls.Add(ConversionErrors_Value_textBox);
 			Controls.Add(ConversionErrors_button1);
